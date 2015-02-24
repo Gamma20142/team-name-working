@@ -83,6 +83,11 @@
     <ClCompile Include="ticketReader.cpp" />
     <ClCompile Include="userReader.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="logWriter.h" />
+    <ClInclude Include="ticketReader.h" />
+    <ClInclude Include="userReader.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

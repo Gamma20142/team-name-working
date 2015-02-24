@@ -1,26 +1,7 @@
+#include "userReader.h"
 #include <iostream>
-#include <string>
 #include <fstream>
 #include <sstream>
-#include <vector>
-
-using namespace std;
-
-class userReader{
-	vector<string> users;
-public:
-	userReader();
-	int read();
-	void printUsers();
-	int auth(string user);
-	int create(string user, string type, int credit);
-	int deleteUser(string user);
-	int updateWallet(string user, int value);
-};
-
-userReader::userReader(){
-
-}
 
 //returns 0 on success, -1 on file open failure
 int userReader::read(){
@@ -48,9 +29,23 @@ void userReader::printUsers(){
 	cout << "\n";
 }
 
+string userReader::getType(string user){
+	for (int i = user.length(); i < 15; i++){
+		user += " ";
+	}
+	int index = 0;
+	for (index = 0; index < users.size(); index++){
+		if (user.compare(users[index].substr(0, 15)) == 0)
+			break;
+	}
+	if (index == users.size()){ //user was not found
+		return "";
+	}
+	return users[index].substr(16, 2);
+}
 
 //returns -1 if user not found, otherwise returns the amount of credit they have
-int userReader::auth(string user){
+double userReader::auth(string user){
 	for (int i = user.length(); i < 15; i++){
 		user += " ";
 	}
@@ -64,7 +59,45 @@ int userReader::auth(string user){
 	}
 	else{
 		string wallet = users[index].substr(19, 9);
-		return stoi(wallet);
+		return stod(wallet);
+	}
+}
+
+int userReader::transferCredit(string buyer, string seller,double amount, bool sale){
+	for (int i = buyer.length(); i < 15; i++){
+		buyer += " ";
+	}
+	for (int i = seller.length(); i < 15; i++){
+		seller += " ";
+	}
+	int buyerIndex = -1;
+	int sellerIndex = -1;
+	for (int index = 0; index < users.size(); index++){
+		if (buyer.compare(users[index].substr(0, 15)) == 0)
+			buyerIndex = index;
+		if (seller.compare(users[index].substr(0, 15)) == 0)
+			sellerIndex = index;
+	}
+	if (buyerIndex == -1|| sellerIndex == -1){ //either seller or buyer was not found
+		return -1;
+	}
+
+	double buyerCredit = stod(users[buyerIndex].substr(19, 9));
+	double sellerCredit = stod(users[sellerIndex].substr(19, 9));
+
+	if (sale){
+		if (buyerCredit < amount){	//buyer doesn't have enough credit to do purchase
+			return -2;
+		}
+		updateWallet(buyer, buyerCredit - amount);
+		updateWallet(seller, sellerCredit + amount);
+	}
+	else{
+		if (sellerCredit < amount){	//seller doesn't have enough credit to do refund
+			return -3;
+		}
+		updateWallet(buyer, buyerCredit + amount);
+		updateWallet(seller, sellerCredit - amount);
 	}
 }
 
@@ -119,7 +152,7 @@ int userReader::deleteUser(string user){
 	return 0;
 }
 
-int userReader::updateWallet(string user, int value){
+int userReader::updateWallet(string user, double value){
 	for (int i = user.length(); i < 15; i++){
 		user += " ";
 	}

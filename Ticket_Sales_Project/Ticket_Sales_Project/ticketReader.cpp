@@ -1,21 +1,9 @@
+#include "ticketReader.h"
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include <iomanip>
-
-using namespace std;
-
-class ticketReader{
-	vector<string> tickets;
-public:
-	void printTickets();
-	int buy(string event, int quantity);
-	int sell(string event, double price, int quantity, string user);
-	int read();
-	vector<string> getEvents();
-};
 
 //Error codes for buy:
 // 0 is success
@@ -131,7 +119,7 @@ vector<string> ticketReader::getEvents(){
 	return tickets;
 }
 
-int main(){
+/*int main(){
 	ticketReader ticket;
 	ticket.read();
 	ticket.printTickets();
@@ -140,4 +128,4 @@ int main(){
 	ticket.sell("Alvin and the Chipmunks", 11.75, 70, "jimmy");
 	ticket.printTickets();
 	return 0;
-}
+}*/
