@@ -7,6 +7,7 @@ using namespace std;
 class ticketReader{
 private:
 	vector<string> tickets;
+	int findEvent(string event);
 public:
 	void printTickets();
 	int buy(string event, int quantity);

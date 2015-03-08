@@ -6,3 +6,11 @@
 05 tdfrantz        gamma20142      123081.78
 06 tdfrantz        FS 124081.78
 00 tdfrantz        FS 124081.78
+01 jimmy           AA 000000.00
+02 jimmy           AA 000000.00
+01 jimmy           AA 000000.00
+01 jimmy           AA 000000.00
+02 jimmy           AA 000000.00
+03 test                      tdfrantz        075 075.00
+04 test                      tdfrantz        010 075.00
+00 tdfrantz        FS 122706.78

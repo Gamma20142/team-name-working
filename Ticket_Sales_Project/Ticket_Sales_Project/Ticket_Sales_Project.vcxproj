@@ -79,11 +79,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="frontEndMain.cpp" />
+    <ClCompile Include="helper.cpp" />
     <ClCompile Include="logWriter.cpp" />
     <ClCompile Include="ticketReader.cpp" />
     <ClCompile Include="userReader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="helper.h" />
     <ClInclude Include="logWriter.h" />
     <ClInclude Include="ticketReader.h" />
     <ClInclude Include="userReader.h" />
