@@ -26,6 +26,13 @@ using namespace std;
 /	addCredit - adds credit to the currently logged in user (for now)
 */
 
+const int MAX_TICKETS_BUY = 4;
+const int MAX_TICKETS_SELL = 100;
+const int MAX_TICKET_PRICE = 1000;
+const double MAX_ACCOUNT_VALUE = 999999.99;
+const int user_length = 15;
+const int event_length = 25;
+
 int main(){
 	//read in user file
 	userReader users;
@@ -35,25 +42,31 @@ int main(){
 	ticketReader tickets;
 	tickets.read();
 
+	//create the log writer
 	logWriter writer;
 
+	//current user information
 	bool loggedIn = false;
 	string currentUser;
 	double userWalletValue;
+	string userType;
+
 
 	string command;
 	string commandCode;
 	string logString;
 
 	while (true){
+		cin.clear();
 		if (loggedIn){
 			cout << "What would you like to do? ";
-			cin >> command;
+			getline(cin,command);
 			// LOGOUT
 			if (command == "logout"){
 				//makes the string for the daily transaction file
 				commandCode = "00";
-				logString = commandCode + " " + helper::pad(currentUser, 15, " ",false) + " " + users.getType(currentUser) + " " + helper::pad(helper::dtom(userWalletValue),9,"0",true);
+				logString = commandCode + " " + helper::pad(currentUser, user_length, " ",false) + " " + users.getType(currentUser) 
+					+ " " + helper::pad(helper::dtom(userWalletValue),9,"0",true);
 				writer.writeIn(logString);
 
 				//sets the system back to logged out state
@@ -61,157 +74,397 @@ int main(){
 				currentUser = "";
 				userWalletValue = 0;
 			}
+			//QUIT - LOGOUT THEN QUIT INSTEAD OF GOING BACK TO MAIN MENU
+			else if (command == "quit"){
+				//makes the string for the daily transaction file
+				commandCode = "00";
+				logString = commandCode + " " + helper::pad(currentUser, user_length, " ", false) + " " + users.getType(currentUser) 
+					+ " " + helper::pad(helper::dtom(userWalletValue), 9, "0", true);
+				writer.writeIn(logString);
+				return 0;
+			}
 			// CREATE
 			else if (command == "create"){
-				cout << "Please enter the new username: ";
-				string newUser;
-				cin >> newUser;
-				cout << "Please enter the type of user (AA, FS, BS, SS): ";
-				string userType;
-				cin >> userType;
-				if (users.create(newUser, userType, 0) == 0)		
-					cout << "User created.\n";
-				else
-					cout << "Failed to create user\n";
 				
-				//daily transaction
-				commandCode = "01";
-				logString = commandCode + " " + helper::pad(newUser,15," ",false) + " " + userType + " " + helper::pad(helper::dtom(0.0),9,"0",true);
-				writer.writeIn(logString);
+				if (userType == "AA"){
+
+
+					bool properInput = false;
+					string newUser;
+					string newType;
+
+					//get the username
+					do{
+						cout << "Please enter the new username: ";
+						getline(cin, newUser);
+						if (newUser.length() > user_length)
+							cout << "Username is too long.\n";
+						else if (users.auth(newUser) != -1)
+							cout << "Username already exits.\n";
+						else
+							properInput = true;
+					} while (properInput == false);
+
+					properInput = false;
+
+					//get the type
+					do{
+						cout << "Please enter the type of user (AA, FS, BS, SS): ";
+						getline(cin, newType);
+						if (newType != "AA" && newType != "FS" && newType != "BS" && newType != "SS")
+							cout << "Invalid user type.\n";
+						else
+							properInput = true;
+					} while (properInput == false);
+
+					//create the user
+					if (users.create(newUser, newType, 0) == 0){
+
+						//daily transaction
+						commandCode = "01";
+						logString = commandCode + " " + helper::pad(newUser, user_length, " ", false) + " " + newType 
+							+ " " + helper::pad(helper::dtom(0.0), 9, "0", true);
+						writer.writeIn(logString);
+
+						cout << "User created.\n";
+					}
+					else
+						cout << "Failed to create user\n";
+				}
+				else{
+					cout << "Please log in as an administrator to create an account.\n";
+				}
 			}
 			// DELETE
 			else if (command == "delete"){
-				cout << "Please enter the user to delete: ";
-				string deleteUser;
-				cin >> deleteUser;
-				double deleteWallet = users.auth(deleteUser);
-				string deleteType = users.getType(deleteUser);
+				if (userType == "AA"){
+					cout << "Please enter the user to delete: ";
+					string deleteUser;
+					getline(cin, deleteUser);
+					double deleteWallet = users.auth(deleteUser);
+					string deleteType = users.getType(deleteUser);
 
-				if (users.deleteUser(deleteUser) == -1){
-					cout << "Could not find user.\n";
-				}
-				else{	//delete the user's tickets for sale
-					vector<string> events = tickets.getEvents();
-	
-					int index = 0;
-					for (index = 0; index < events.size(); index++){
-						if (helper::pad(deleteUser,15," ",false).compare(events[index].substr(26, 15)) == 0){	//searching for the username
-							int ticketsRemaining = stoi(events[index].substr(42, 3));
-							tickets.buy(events[index].substr(0, 25), ticketsRemaining);
-						}
+					if (deleteUser == currentUser){
+						cout << "Cannot delete currently logged in user.\n";
 					}
-					cout << "User was deleted\n";
-					//daily transaction
-					commandCode = "02";
-					logString = commandCode + " " + helper::pad(deleteUser, 15, " ", false) + " " + deleteType + " " + helper::pad(helper::dtom(deleteWallet), 9, "0", true);
-					writer.writeIn(logString);
+					else if (users.deleteUser(deleteUser) == -1){
+						cout << "Could not find user.\n";
+					}
+					else{	//delete the user's tickets for sale
+						vector<string> events = tickets.getEvents();
+
+						int index = 0;
+						for (index = 0; index < events.size(); index++){
+							if (helper::pad(deleteUser, user_length, " ", false).compare(events[index].substr(26, user_length)) == 0){	//searching for the username
+								int ticketsRemaining = stoi(events[index].substr(42, 3));
+								tickets.buy(events[index].substr(0, event_length), ticketsRemaining);
+							}
+						}
+						cout << "User was deleted\n";
+						//daily transaction
+						commandCode = "02";
+						logString = commandCode + " " + helper::pad(deleteUser, user_length, " ", false) + " " + deleteType + " " 
+							+ helper::pad(helper::dtom(deleteWallet), 9, "0", true);
+						writer.writeIn(logString);
+					}
+				}
+				else{
+					cout << "Please log in as an administrator to delete an account.\n";
 				}
 			}
 			// SELL
 			else if (command == "sell"){
-				cout << "What is the name of the event you are selling tickets for? ";
-				string eventName;
-				cin >> eventName;
-				cout << "How much will each ticket sell for? ";
-				double ticketPrice;
-				cin >> ticketPrice;
-				cout << "How many tickets are for sale? ";
-				int numTickets;
-				cin >> numTickets;
-				tickets.sell(eventName, ticketPrice, numTickets, currentUser);
-				cout << "Event created.\n";
-				//daily transaction
-				commandCode = "03";
-				logString = commandCode + " " + helper::pad(eventName,25," ",false) + " " + helper::pad(currentUser,15," ",false) + " " 
-					+ helper::pad(to_string(numTickets),3,"0",true) + " " + helper::pad(helper::dtom(ticketPrice),6,"0",true);
-				writer.writeIn(logString);
+				if (userType != "BS"){
+					bool properInput = false;
+					string eventName;
+					string ticketPriceString;
+					string numTicketsString;
+					double ticketPrice;
+					int numTickets;					
+					
+					//get the event name
+					do{
+						cout << "What is the name of the event you are selling tickets for? ";
+						getline(cin, eventName);
+						if (eventName.length() > event_length)
+							cout << "The event name is too long.\n";
+						else
+							properInput = true;
+					} while (properInput == false);
+					
+					properInput = false;
+
+					//get the price
+					do{
+						try{
+							cout << "How much will each ticket sell for? ";
+							getline(cin, ticketPriceString);
+
+							ticketPrice = stod(ticketPriceString);
+							if (ticketPrice >= MAX_TICKET_PRICE)
+								cout << "Ticket price is too high.\n";
+							else
+								properInput = true;
+							}
+							catch (invalid_argument e){
+								cout << "That is not a valid number.\n";
+							}
+						} while (properInput == false);
+
+					properInput = false;
+
+					//get the number of tickets
+					do{
+						try{
+							cout << "How many tickets are for sale? ";
+							getline(cin, numTicketsString);
+							numTickets = stoi(numTicketsString);
+							if (numTickets > MAX_TICKETS_SELL)
+								cout << "The maximum number of tickets is 100.\n";
+							else
+								properInput = true;
+						}
+						catch (invalid_argument e){
+							cout << "That is not a valid number.\n";
+						}
+					} while (properInput == false);
+	
+					tickets.sell(eventName, ticketPrice, numTickets, currentUser);
+					cout << "Event created.\n";
+					
+					//daily transaction
+					commandCode = "03";
+					logString = commandCode + " " + helper::pad(eventName, event_length, " ", false) + " " + helper::pad(currentUser, user_length, " ", false) + " "
+						+ helper::pad(to_string(numTickets), 3, "0", true) + " " + helper::pad(helper::dtom(ticketPrice), 6, "0", true);
+					writer.writeIn(logString);
+				}
+				else{
+					cout << "This account is not allowed to sell tickets. Please log in as a seller account.\n";
+				}
 			}
 			// BUY
 			else if (command == "buy"){
-				cout << "What event would you like to buy tickets for? ";
-				string eventName;
-				cin >> eventName;
-				cout << "How many tickets would you like to purchase? ";
-				int numTickets;
-				cin >> numTickets;
+				if (userType != "SS"){
+					string eventName;
+					string numTicketsString;
+					string seller;
+					int numTickets;
+					int ticketsRemaining;
+					double price;
+					vector<string> events = tickets.getEvents();
+				
+					bool foundEvent = false;
+					cout << "What event would you like to buy tickets for? ";
+					getline(cin, eventName);
 
-				//find the event, the cost of each ticket
-				vector<string> events = tickets.getEvents();
+					cout << "What is the sellers name?";
+					getline(cin, seller);
 
-				int index = 0;
-				string seller;
-				for (index = 0; index < events.size(); index++){
-					if (helper::pad(eventName,25," ",false).compare(events[index].substr(0, 25)) == 0){	//searching for the event
-						int ticketsRemaining = stoi(events[index].substr(42, 3));
-						double price = stod(events[index].substr(46,6));
+					int index = 0;
+					for (index = 0; index < events.size(); index++){
+						if (helper::pad(eventName, event_length, " ", false).compare(events[index].substr(0, event_length)) == 0){	//searching for the event
+							if (helper::pad(seller, user_length, " ", false).compare(events[index].substr(26, user_length)) == 0){
+								ticketsRemaining = stoi(events[index].substr(42, 3));
+								price = stod(events[index].substr(46, 6));
+								foundEvent = true;
+							}
+						}
+					}
+					if (foundEvent == false){
+						cout << "Either that event doesn't exist or that seller isn't selling tickets to that show.\n";
+					}
+					else{
+						bool properInput = false;
+						do{
+							try{
+								cout << "How many tickets would you like to purchase? ";
+								getline(cin, numTicketsString);
+								numTickets = stoi(numTicketsString);
+								if (numTickets > MAX_TICKETS_BUY && userType!="AA")
+									cout << "Can't buy more than 4 tickets at once.\n";
+								else
+									properInput = true;
+							}
+							catch (invalid_argument e){
+								cout << "That is not a valid number.\n";
+							}
+						} while (properInput == false);
+
 						if (numTickets > ticketsRemaining){
 							cout << "Not enough tickets.";
 						}
 						else{
 							double cost = price*numTickets;
-							if ( cost > userWalletValue)
+							if (cost > userWalletValue)
 								cout << "Not enough credit to complete transaction. Please add more credit first.\n";
 							else{
 								userWalletValue -= cost;
-								seller = events[index].substr(26, 15);
-								users.transferCredit(currentUser,seller,cost,true);	//update the buyers wallet
-								tickets.buy(eventName, numTickets);		
+
+								users.transferCredit(currentUser, seller, cost, true);	//update the buyers wallet
+								tickets.buy(eventName, numTickets);
 								cout << "Tickets purchased.\n";
 								//daily transaction
 								commandCode = "04";
-								logString = commandCode + " " + helper::pad(eventName,25," ",false) + " " + seller + " " 
-									+ helper::pad(to_string(numTickets),3,"0",true) + " " + helper::pad(helper::dtom(price),6,"0",true);
+								logString = commandCode + " " + helper::pad(eventName, event_length, " ", false) + " " + helper::pad(seller, user_length, " ", false) + " "
+									+ helper::pad(to_string(numTickets), 3, "0", true) + " " + helper::pad(helper::dtom(price), 6, "0", true);
 								writer.writeIn(logString);
 							}
 						}
 					}
 				}
-
+				else{
+					cout << "This account is not allowed to buy tickets. Please log in as a buyer account.\n";
+				}
 			}
 			// REFUND
 			else if (command == "refund"){
-				cout << "Which buyer is getting a refund? ";
-				string buyer;
-				cin >> buyer;
-				cout << "Which seller is issuing a refund? ";
-				string seller;
-				cin >> seller;
-				cout << "How much credit is being refunded? ";
-				double amount;
-				cin >> amount;
-				users.transferCredit(buyer, seller, amount, false);
-				cout << "Refund complete.";
-				// daily transaction
-				commandCode = "05";
-				logString = commandCode + " " + helper::pad(buyer,15," ",false) + " " + helper::pad(seller,15," ",false) + " " + helper::pad(helper::dtom(amount),9,"0",true);
-				writer.writeIn(logString);
+				if (userType == "AA"){
+					string buyer;
+					string seller;
+
+					string amountString;
+					double amount;
+					bool foundUser = false;
+					
+					do{
+						cout << "Which buyer is getting a refund? ";
+						getline(cin, buyer);
+						if (users.auth(buyer) == -1)
+							cout << "That user does not exist\n";
+						else
+							foundUser = true;
+					} while (foundUser == false);
+
+					foundUser = false;
+
+					do{
+						cout << "Which seller is issuing a refund? ";
+						getline(cin, seller);
+						if (users.auth(seller) == -1)
+							cout << "That user does not exist.\n";
+						else
+							foundUser = true;
+					} while (foundUser == false);
+
+					bool properInput = false;
+					do{
+						cout << "How much credit is being refunded? ";
+						getline(cin, amountString);
+						try{
+							amount = stod(amountString);
+							properInput = true;
+						}
+						catch (invalid_argument e){
+							cout << "That is not a valid number.\n";
+						}
+					} while (properInput == false);
+
+					users.transferCredit(buyer, seller, amount, false);
+					cout << "Refund complete.";
+					// daily transaction
+					commandCode = "05";
+					logString = commandCode + " " + helper::pad(buyer, user_length, " ", false) + " " + helper::pad(seller, user_length, " ", false) 
+						+ " " + helper::pad(helper::dtom(amount), 9, "0", true);
+					writer.writeIn(logString);
+				}
+				else{
+					cout << "Please log in as an administrator to issue a refund.\n";
+				}
 			}
 			else if (command == "addCredit"){
-				cout << "How much credit would you like to add? ";
+
+				string creditUser;
 				double amount;
-				cin >> amount;
+
+				if (userType == "AA"){
+					bool foundUser = false;
+					do{
+						cout << "Which user account would you like to add credit to? ";
+						getline(cin, creditUser);
+						if (users.auth(creditUser) == -1)
+							cout << "Cannot find that user.\n";
+						else
+							foundUser = true;
+					} while (foundUser == false);
+				}
+				else{
+					creditUser = currentUser;
+				}
+
+				bool properInput = false;
+				do{
+					cout << "How much credit would you like to add? ";
+					string amountString;
+					getline(cin, amountString);
+					try{
+						amount = stod(amountString);
+						properInput = true;
+					}
+					catch (invalid_argument e){
+						cout << "That is not a valid number.\n";
+					}
+				} while (properInput == true);
+
 				if (amount > 1000){
 					cout << "Cannot add more than $1000.00 credit at one time.\n";
 				}
-				else if ((userWalletValue + amount) > 999999.99){
+				else if ((users.auth(creditUser) + amount) > MAX_ACCOUNT_VALUE){
 					cout << "You cannot have that much credit in the system.\n";
 				}
 				else{
-					userWalletValue += amount;
-					users.updateWallet(currentUser, userWalletValue);
+					if (creditUser == currentUser)
+						userWalletValue += amount;
+					users.updateWallet(creditUser, users.auth(creditUser)+amount);
 					cout << "Credit added.\n";
+
+					//daily transaction
+					commandCode = "06";
+					logString = commandCode + " " + helper::pad(creditUser, user_length, " ", false) + " " + users.getType(creditUser)
+						+ " " + helper::pad(helper::dtom(users.auth(creditUser) + amount), 9, "0", true);
+					writer.writeIn(logString);
 				}
-				//daily transaction
-				commandCode = "06";
-				logString = commandCode + " " + helper::pad(currentUser,15," ",false) + " " + users.getType(currentUser) + " " + helper::pad(helper::dtom(userWalletValue),9,"0",true);
-				writer.writeIn(logString);
+			}
+			else if (command == "help"){
+				if (userType == "AA"){
+					cout << "create - creates a new user in the system.\n";
+					cout << "delete - delete a user from the system.\n";
+					cout << "buy - purchase tickets to an event.\n";
+					cout << "sell - post tickets to an event for sale.\n";
+					cout << "refund - issue a refund from a seller to a buyer\n";
+					cout << "addCredit - add credit to a user's account.\n";
+					cout << "logout - logout of the system.\n";
+					cout << "quit - logout of the system and exit.\n";
+				}
+				else if (userType == "FS"){
+					cout << "buy - purchase tickets to an event.\n";
+					cout << "sell - post tickets to an event for sale.\n";
+					cout << "addCredit - add credit to a user's account.\n";
+					cout << "logout - logout of the system.\n";
+					cout << "quit - logout of the system and exit.\n";
+				}
+				else if (userType == "SS"){
+					cout << "sell - post tickets to an event for sale.\n";
+					cout << "addCredit - add credit to a user's account.\n";
+					cout << "logout - logout of the system.\n";
+					cout << "quit - logout of the system and exit.\n";
+				}
+				else if (userType == "BS"){
+					cout << "buy - purchase tickets to an event.\n";
+					cout << "addCredit - add credit to a user's account.\n";
+					cout << "logout - logout of the system.\n";
+					cout << "quit - logout of the system and exit.\n";
+				}
+			}
+			else{
+				string errorString = "\"" + command + "\" is not a valid command. Type help to bring up a list of possible commands.\n";
+				cout << errorString;
 			}
 		}
 		else
 		{
 			cout << "Please enter your login name: ";
 			string username;
-			cin >> username;
+			getline(cin,username);
 			userWalletValue = users.auth(username);
 			if (userWalletValue == -1){
 				cout << "Invalid login name.\n";
@@ -219,6 +472,7 @@ int main(){
 			else{
 				loggedIn = true;
 				currentUser = username;
+				userType = users.getType(username);
 			}
 		}
 	}

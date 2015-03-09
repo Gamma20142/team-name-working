@@ -1,5 +1,5 @@
-gamma20142      AA 999999.99
-tdfrantz        FS 123456.78
+gamma20142      FS 999999.99
+tdfrantz        AA 123456.78
 philcollins     BS 098765.43
 abcdefghijklmno SS 000000000
 END

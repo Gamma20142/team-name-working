@@ -14,6 +14,9 @@
 */
 
 
+const double MAX_ACCOUNT_VALUE = 999999.99;
+const int user_length = 15;
+
 // read - reads in the user information from the user file and stores it in a vector called users
 // return:   0 on success
 //			-1 on file open failure\
@@ -34,6 +37,25 @@ int userReader::read(){
 		return -1;
 	}
 }
+
+
+
+// findUser - an internal function used to find the index of a user in the users vector
+// input:	string user - the user we are looking for
+// return:	 -1 if the user wasn't found
+//			the index of the user if it was found
+
+int userReader::findUser(string user){
+	int index = 0;
+	for (index = 0; index < users.size(); index++){
+		if (helper::pad(user, user_length, " ", false).compare(users[index].substr(0, user_length)) == 0){
+			return index;
+		}
+	}
+	return -1;
+}
+
+
 
 // printUsers - an internal function used to check the data in the users vector
 
@@ -82,7 +104,9 @@ double userReader::auth(string user){
 // return:	0 on success
 //			-1 if either seller or buyer was not found
 //			-2 if the buyer doesn't have enough credit to make a purchase
-//			-3 if the seller doesn't have enough credit to make a refund\
+//			-3 if the seller doesn't have enough credit to make a refund
+//			-4 if the seller will have too much credit to allow a purchase
+//			-5 if the buyer will have too much credit to allow a refund
 
 int userReader::transferCredit(string buyer, string seller,double amount, bool sale){
 	int buyerIndex = findUser(buyer);
@@ -98,12 +122,18 @@ int userReader::transferCredit(string buyer, string seller,double amount, bool s
 		if (buyerCredit < amount){	
 			return -2;
 		}
+		if (sellerCredit + amount > MAX_ACCOUNT_VALUE){
+			return -4;
+		}
 		updateWallet(buyer, buyerCredit - amount);
 		updateWallet(seller, sellerCredit + amount);
 	}
 	else{
 		if (sellerCredit < amount){	
 			return -3;
+		}
+		if (buyerCredit + amount > MAX_ACCOUNT_VALUE){
+			return -5;
 		}
 		updateWallet(buyer, buyerCredit + amount);
 		updateWallet(seller, sellerCredit - amount);
@@ -123,16 +153,16 @@ int userReader::transferCredit(string buyer, string seller,double amount, bool s
 
 int userReader::create(string user, string type, double credit){
 
-	if (user.length() > 15){
+	if (user.length() > user_length){
 		return -1;
 	}
 
-	if (type != "AA" && type != "FS" && type != "BS" && type == "SS"){
+	if (type != "AA" && type != "FS" && type != "BS" && type != "SS"){
 		return -2;
 	}
 	string creditString = "";
-	if (credit >= 0 && credit < 1000000){
-		users.push_back(helper::pad(user, 15, " ", false) + " " + type + " " + helper::pad(helper::dtom(credit),9,"0",true));
+	if (credit >= 0 && credit <= MAX_ACCOUNT_VALUE){
+		users.push_back(helper::pad(user, user_length, " ", false) + " " + type + " " + helper::pad(helper::dtom(credit),9,"0",true));
 	}
 	else{
 		return -3;
@@ -170,21 +200,6 @@ int userReader::updateWallet(string user, double value){
 	users[userIndex] = newString;	
 	return 0;
 }
-
-// findUser - an internal function used to find the index of a user in the users vector
-// input:	string user - the user we are looking for
-// return:	 -1 if the user wasn't found
-//			the index of the user if it was found
-
-int userReader::findUser(string user){
-	int index = 0;
-	for (index = 0; index < users.size(); index++){
-		if (helper::pad(user, 15, " ", false).compare(users[index].substr(0, 15)) == 0)
-			return index;
-	}
-	return -1;
-}
-
 
 /*int main(){
 	userReader user;
