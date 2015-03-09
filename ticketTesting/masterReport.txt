@@ -1,0 +1,13 @@
+
+TEST RESULTS
+
+TOTAL TESTS: 2
+
+PASSED TESTS: 2
+
+SPECIFICS
+
+GenericSpecificTest:PASS
+
+GenericSpecificTest2:PASS
+
