@@ -16,7 +16,6 @@
 //			string p - the string that we will be padding s with
 //			bool front - true for padding the front of the string, false to pad the back of the string
 // returns:	returnString - the final padded string
-
 string helper::pad(string s, int length, string p, bool front){
 	string returnString;
 	if (front){

@@ -16,6 +16,11 @@
 */
 
 
+const int event_length = 25;
+const int user_length = 15;
+const int MAX_TICKETS_SELL = 100;
+const int MAX_TICKET_PRICE = 1000;
+
 // printTickets - an internal function that the user will never be able to call. Used to look at the data in the tickets vector
 
 void ticketReader::printTickets(){
@@ -34,7 +39,7 @@ void ticketReader::printTickets(){
 int ticketReader::findEvent(string event){
 	int index = 0;
 	for (index = 0; index < event.size(); index++){
-		if (helper::pad(event, 25, " ", false).compare(tickets[index].substr(0, 25)) == 0)
+		if (helper::pad(event, event_length, " ", false).compare(tickets[index].substr(0, event_length)) == 0)
 			return index;
 	}
 	return -1;
@@ -82,23 +87,23 @@ int ticketReader::buy(string event, int quantity){
 // -4 for invalid quantity
 
 int ticketReader::sell(string event, double price, int quantity, string user){
-	if (event.length() > 25){
+	if (event.length() > event_length){
 		return -1;
 	}
 	//todo : permissions check
 
-	if (price < 0 || price >= 1000){
+	if (price < 0 || price >= MAX_TICKET_PRICE){
 		return -3;
 	}
-	if (quantity <= 0 || quantity > 100){
+	if (quantity <= 0 || quantity > MAX_TICKETS_SELL){
 		return -4;
 	}
-	tickets.push_back(helper::pad(event, 25, " ", false) + " " + helper::pad(user, 15, " ", false) + " " + helper::pad(to_string(quantity), 3, "0", true) + 
+	tickets.push_back(helper::pad(event, event_length, " ", false) + " " + helper::pad(user, user_length, " ", false) + " " + helper::pad(to_string(quantity), 3, "0", true) + 
 		" " + helper::pad(helper::dtom(price), 6, "0", true));
 	return 0;
 }
 
-// read - reads in the availavle tickets information from file and puts it into the tickets vector
+// read - reads in the available tickets information from file and puts it into the tickets vector
 // return: 0 on success
 //		  -1 on file open error
 
