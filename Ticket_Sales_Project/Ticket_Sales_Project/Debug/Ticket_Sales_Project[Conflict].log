@@ -1,0 +1,19 @@
+﻿Build started 3/9/2015 10:59:32 PM.
+     1>Project "C:\Users\Thomas\Google Drive\Quality Assurance\Ticket Project\team-name-working\Ticket_Sales_Project\Ticket_Sales_Project\Ticket_Sales_Project.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt frontEndMain.cpp
+         frontEndMain.cpp
+     1>c:\users\thomas\google drive\quality assurance\ticket project\team-name-working\ticket_sales_project\ticket_sales_project\frontendmain.cpp(180): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\thomas\google drive\quality assurance\ticket project\team-name-working\ticket_sales_project\ticket_sales_project\frontendmain.cpp(304): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Thomas\Google Drive\Quality Assurance\Ticket Project\team-name-working\Ticket_Sales_Project\Debug\Ticket_Sales_Project.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Thomas\Google Drive\Quality Assurance\Ticket Project\team-name-working\Ticket_Sales_Project\Debug\Ticket_Sales_Project.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Thomas\Google Drive\Quality Assurance\Ticket Project\team-name-working\Ticket_Sales_Project\Debug\Ticket_Sales_Project.lib" /MACHINE:X86 Debug\frontEndMain.obj
+         Debug\helper.obj
+         Debug\logWriter.obj
+         Debug\ticketReader.obj
+         Debug\userReader.obj
+         Ticket_Sales_Project.vcxproj -> C:\Users\Thomas\Google Drive\Quality Assurance\Ticket Project\team-name-working\Ticket_Sales_Project\Debug\Ticket_Sales_Project.exe
+     1>Done Building Project "C:\Users\Thomas\Google Drive\Quality Assurance\Ticket Project\team-name-working\Ticket_Sales_Project\Ticket_Sales_Project\Ticket_Sales_Project.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.34

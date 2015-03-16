@@ -1,0 +1,6 @@
+gamma20142
+addCredit
+abcdefghijklmno
+5000
+logout
+quit

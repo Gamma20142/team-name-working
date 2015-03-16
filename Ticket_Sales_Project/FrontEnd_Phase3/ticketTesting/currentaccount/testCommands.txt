@@ -1,0 +1,5 @@
+gamma20142
+delete
+gamma20142
+logout
+quit

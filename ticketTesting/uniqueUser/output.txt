@@ -1,0 +1,10 @@
+Please enter your login name: 
+What would you like to do? 
+Please enter the new username: 
+Username already exits.
+Please enter the new username: 
+Please enter the type of user (AA, FS, BS, SS): 
+User created.
+What would you like to do? 
+Please enter your login name: 
+Ready to shut down. . . .

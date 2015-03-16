@@ -1,0 +1,4 @@
+Please enter your login name: 
+Invalid login name.
+Please enter your login name: 
+Ready to shut down. . . .

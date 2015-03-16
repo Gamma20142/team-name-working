@@ -1,0 +1,8 @@
+Please enter your login name: 
+What would you like to do? 
+What event would you like to buy tickets for? 
+What is the sellers name?
+Either that event doesn't exist or that seller isn't selling tickets to that show.
+What would you like to do? 
+Please enter your login name: 
+Ready to shut down. . . .

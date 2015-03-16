@@ -1,0 +1,9 @@
+Please enter your login name: 
+What would you like to do? 
+What event would you like to buy tickets for? 
+What is the sellers name?
+How many tickets would you like to purchase? 
+Can't buy more than 4 tickets at once.
+How many tickets would you like to purchase? 
+Tickets purchased.
+What would you like to do? 

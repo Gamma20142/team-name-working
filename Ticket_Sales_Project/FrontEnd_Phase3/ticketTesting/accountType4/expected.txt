@@ -1,0 +1,6 @@
+Please enter your login name: 
+What would you like to do? 
+Please log in as an administrator to delete an account.
+What would you like to do? 
+Please enter your login name: 
+Ready to shut down. . . .

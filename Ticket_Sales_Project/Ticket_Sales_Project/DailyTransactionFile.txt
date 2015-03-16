@@ -5,3 +5,6 @@
 04 Blink 182                 tdfrantz        003 250.00
 00 tdfrantz        AA 122706.78
 05 philcollins     tdfrantz        000150.00
+06 abcdefghijklmno SS 000200.00
+00 tdfrantz        AA 123456.78
+00 tdfrantz        AA 123456.78

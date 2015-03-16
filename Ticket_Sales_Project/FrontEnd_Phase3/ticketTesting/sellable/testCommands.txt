@@ -1,0 +1,7 @@
+tdfrantz
+sell
+death
+50
+50
+logout
+quit

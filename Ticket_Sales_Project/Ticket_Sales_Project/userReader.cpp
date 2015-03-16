@@ -4,6 +4,7 @@
 #include <sstream>
 #include "helper.h"
 
+using namespace std;
 
 /*	USERREADER
 /	written by	Ryan Morton - 100485285

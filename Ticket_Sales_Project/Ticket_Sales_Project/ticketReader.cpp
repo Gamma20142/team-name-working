@@ -6,6 +6,7 @@
 #include <sstream>
 #include <vector>
 
+using namespace std;
 
 /*	TICKETREADER
 /	written by	Ryan Morton - 100485285
