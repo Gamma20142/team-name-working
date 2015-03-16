@@ -1,0 +1,9 @@
+Please enter your login name: 
+What would you like to do? 
+What is the name of the event you are selling tickets for? 
+How much will each ticket sell for? 
+How many tickets are for sale? 
+The maximum number of tickets is 100.
+How many tickets are for sale? 
+Event created.
+What would you like to do? 

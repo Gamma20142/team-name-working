@@ -1,0 +1,7 @@
+Please enter your login name: 
+What would you like to do? 
+Please enter the user to delete: 
+User was deleted
+What would you like to do? 
+Please enter your login name: 
+Ready to shut down. . . .

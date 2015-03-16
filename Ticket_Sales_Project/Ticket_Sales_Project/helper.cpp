@@ -1,6 +1,8 @@
 #include <string>
 #include "helper.h"
 
+using namespace std;
+
 /*	HELPER
 /	written by	Ryan Morton - 100485285
 /				Thomas Frantz - 100484424

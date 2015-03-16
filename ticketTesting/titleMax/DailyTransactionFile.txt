@@ -1,0 +1,97 @@
+00 tdfrantz        FS 123456.78
+00 gamma20142      AA 999999.99
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+00 tdfrantz        FS 123456.78
+03 111111111111111           tdfrantz        001 999.00
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78
+03 999                       tdfrantz        001 001.00
+00 tdfrantz        FS 123456.78

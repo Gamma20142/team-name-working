@@ -1,0 +1,6 @@
+Please enter your login name: 
+What would you like to do? 
+This account is not allowed to buy tickets. Please log in as a buyer account.
+What would you like to do? 
+Please enter your login name: 
+Ready to shut down. . . .

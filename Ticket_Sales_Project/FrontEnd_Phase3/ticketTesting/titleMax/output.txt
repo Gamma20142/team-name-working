@@ -1,0 +1,9 @@
+Please enter your login name: 
+What would you like to do? 
+What is the name of the event you are selling tickets for? 
+The event name is too long.
+What is the name of the event you are selling tickets for? 
+How much will each ticket sell for? 
+How many tickets are for sale? 
+Event created.
+What would you like to do? 

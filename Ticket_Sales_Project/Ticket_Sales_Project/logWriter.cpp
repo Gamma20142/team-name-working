@@ -5,6 +5,8 @@
 #include <vector>
 #include "logWriter.h"
 
+using namespace std;
+
 /*	LOGWRITER
 /	written by	Ryan Morton - 100485285
 /				Thomas Frantz - 100484424

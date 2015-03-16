@@ -1,0 +1,13 @@
+Please enter your login name: 
+What would you like to do? 
+What is the name of the event you are selling tickets for? 
+How much will each ticket sell for? 
+That is not a valid number.
+How much will each ticket sell for? 
+How many tickets are for sale? 
+That is not a valid number.
+How many tickets are for sale? 
+Event created.
+What would you like to do?
+Please enter your login name: 
+Ready to shut down. . . .

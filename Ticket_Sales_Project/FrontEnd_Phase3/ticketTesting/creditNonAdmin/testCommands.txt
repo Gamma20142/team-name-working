@@ -1,0 +1,5 @@
+adcdefghijklmno
+addCredit
+500
+logout
+quit
