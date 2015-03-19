@@ -35,9 +35,9 @@ public class ticketsRW {
 			
 			fileFound = false;
 			
-		} catch (IOException e) {
+		//} catch (IOException e) {
 			
-			fileFound = false;
+			//fileFound = false;
 			
 		}
 		

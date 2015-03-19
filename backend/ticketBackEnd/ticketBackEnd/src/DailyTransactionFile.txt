@@ -1,0 +1,11 @@
+01 test            AA 000000.00
+01 dsada           AA 000000.00
+03 Test Show 007             tdfrantz        075 750.00
+00 tdfrantz        AA 123456.78
+04 Blink 182                 tdfrantz        003 250.00
+00 tdfrantz        AA 122706.78
+05 philcollins     tdfrantz        000150.00
+06 philcollins     BS 099365.43
+00 philcollins     BS 099065.43
+03 blarg                     abcdefghijklmno 080 023.25
+00 abcdefghijklmno SS 000000.00
