@@ -5,6 +5,9 @@
 // update the user accounts and daily transaction 
 // files as necessary
 //
+// To run the program from the command line navigate to the src folder and type:
+// java runtime.backEndMain
+
 
 package runtime;
 
