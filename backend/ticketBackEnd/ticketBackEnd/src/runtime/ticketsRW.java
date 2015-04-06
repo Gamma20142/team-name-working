@@ -46,7 +46,7 @@ public class ticketsRW {
 	
 	
 	
-	public ticket[] getTickets() throws IOException{
+	public ticket[] getTickets() throws Exception{
 		
 		ticket[] tickets = new ticket[0];
 		
@@ -55,31 +55,23 @@ public class ticketsRW {
 			boolean end = false;
 			
 			while(!end){
-				
 				String raw = reader.readLine();
 				
-				if(raw.equals("END")){
-					
-					end = true;
-					
-				}
-				else{
-					
-					if(!raw.equals("")){ // in case dummy double breaks are inside the list
-						
-						String name = raw.substring(0, 25);
-						String seller = raw.substring(26, 41);
-						
-						int quantity = Integer.parseInt(raw.substring(42, 45));
-						
-						double price = Double.parseDouble(raw.substring(46));
-						
-						ticket current = new ticket(name, seller, quantity, price);
-						
-						tickets = helper.addTicket(tickets, current);
-						
+				if (raw != null){
+					if(raw.equals("END")){
+						end = true;
 					}
-					
+					else{
+						if(!raw.equals("")){ // in case dummy double breaks are inside the list
+							String name = raw.substring(0, 25);
+							String seller = raw.substring(26, 41);
+							int quantity = Integer.parseInt(raw.substring(42, 45));
+							double price = Double.parseDouble(raw.substring(46));
+							
+							ticket current = new ticket(name, seller, quantity, price);
+							tickets = helper.addTicket(tickets, current);			
+						}
+					}
 				}
 				
 				

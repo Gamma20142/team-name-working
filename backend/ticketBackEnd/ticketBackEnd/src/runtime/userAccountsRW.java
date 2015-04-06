@@ -22,7 +22,6 @@ public class userAccountsRW {
 	//cant read more than once
 	
 	
-	
 	public userAccountsRW(){
 		
 		try { // if it can't find the file set check boolean to false
@@ -40,9 +39,7 @@ public class userAccountsRW {
 		
 	}
 	
-	
-	
-	public user[] getUsers() throws IOException{
+	public user[] getUsers() throws Exception{
 		
 		user[] users = new user[0];
 		
@@ -54,29 +51,28 @@ public class userAccountsRW {
 				
 				String raw = reader.readLine();
 				
-				if(raw.equals("END")){
-					
-					end = true;
-					
-				}
-				else{
-					
-					if(!raw.equals("")){ // in case dummy double breaks are inside the list
+				if (raw!=null){
+					if(raw.equals("END")){
 						
-						String name = raw.substring(0, 15);
-						String type = raw.substring(16, 18);
-						
-						double wallet = Double.parseDouble(raw.substring(19));
-						
-						user current = new user(name, type, wallet);
-						
-						users = helper.addUser(users, current);
+						end = true;
 						
 					}
-					
+					else{
+						
+						if(!raw.equals("")){ // in case dummy double breaks are inside the list
+							
+							String name = raw.substring(0, 15);
+							String type = raw.substring(16, 18);
+							
+							double wallet = Double.parseDouble(raw.substring(19));
+							
+							user current = new user(name, type, wallet);
+							
+							users = helper.addUser(users, current);
+							
+						}
+					}	
 				}
-				
-				
 			}
 			
 			read = true;
@@ -87,10 +83,6 @@ public class userAccountsRW {
 		return users;
 		
 	}
-	
-	
-	
-
 
 	public int writeUsers(user[] users) throws IOException{
 		
@@ -110,7 +102,6 @@ public class userAccountsRW {
 			} catch (IOException e) {
 				
 				System.out.println("Couldn't write line");
-				
 				return -1;
 				
 			}
@@ -135,9 +126,8 @@ public class userAccountsRW {
 		
 	}
 	
-	
-	
-	
-	
+	public boolean isFileFound(){
+		return fileFound;
+	}
 	
 }

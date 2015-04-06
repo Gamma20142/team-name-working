@@ -37,8 +37,6 @@ public class transactionR {
 		
 	}
 	
-	
-	
 	public String readLine(){
 		
 		String result = "";
@@ -58,19 +56,11 @@ public class transactionR {
 			
 		}
 		
-		
 		return result;
 		
 	}
 	
 	public boolean isRead(){
-		
-		return read;
-		
+		return read;	
 	}
-	
-	
-	
-	
-	
 }

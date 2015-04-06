@@ -1,0 +1,135 @@
+//
+// userAccountsRW is the object responsible for 
+// reading and writing the current user accounts
+// file for the backEndMain
+//
+
+package runtime;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class userAccountsRW {
+
+	private BufferedReader reader;
+	
+	private static boolean fileFound;
+	private boolean read; // checks if file was already read
+	//cant read more than once
+	
+	
+	public userAccountsRW(){
+		
+		try { // if it can't find the file set check boolean to false
+			
+			reader = new BufferedReader(new FileReader("userInfo.txt"));
+			
+			read = false;
+			fileFound = true;
+			
+		} catch (FileNotFoundException e) {
+			
+			fileFound = false;
+			
+		}
+		
+	}
+	
+	public user[] getUsers() throws Exception{
+		
+		user[] users = new user[0];
+		
+		if(fileFound && !read){
+			
+			boolean end = false;
+			
+			while(!end){
+				
+				String raw = reader.readLine();
+				
+				if(raw.equals("END")){
+					
+					end = true;
+					
+				}
+				else{
+					
+					if(!raw.equals("")){ // in case dummy double breaks are inside the list
+						
+						String name = raw.substring(0, 15);
+						String type = raw.substring(16, 18);
+						
+						double wallet = Double.parseDouble(raw.substring(19));
+						
+						user current = new user(name, type, wallet);
+						
+						users = helper.addUser(users, current);
+						
+					}
+					
+				}
+				
+				
+			}
+			
+			read = true;
+			reader.close();
+			
+		}
+		
+		return users;
+		
+	}
+
+	public int writeUsers(user[] users) throws IOException{
+		
+		BufferedWriter writer = new BufferedWriter(new FileWriter("userInfo.txt"));
+		
+		for(int index = 0; index < users.length; index++){
+			
+			String line = users[index].getName() + " "
+					+ users[index].getType() + " "
+					+ helper.padDouble(users[index].getWallet(), 9); 
+			
+			try {
+				
+				writer.write(line);
+				writer.newLine();
+				
+			} catch (IOException e) {
+				
+				System.out.println("Couldn't write line");
+				
+				return -1;
+				
+			}
+			
+		}
+		
+		
+		try {
+			
+			writer.write("END");
+			
+		} catch (IOException e) {
+			
+			System.out.println("Couldn't write END");
+			return -1;
+			
+		}
+		
+		writer.close();
+		
+		return 0;
+		
+	}
+	
+	public boolean isFileFound(){
+		return fileFound;
+	}
+	
+}

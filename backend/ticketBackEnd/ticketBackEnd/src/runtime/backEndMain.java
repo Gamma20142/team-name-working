@@ -11,11 +11,9 @@
 
 package runtime;
 
-import java.io.IOException;
-
 public class backEndMain {
 	
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws Exception{
 		
 		userAccountsRW userReaderWriter = new userAccountsRW();
 		ticketsRW ticketReaderWriter = new ticketsRW();

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1428284834447" analysisTimestamp="1428284833640" release="">
+  <Project projectName="ticketBackEnd">
+    <Jar>C:\Users\100484424\Google Drive\Quality Assurance\Ticket Project\team-name-working\backend\ticketBackEnd\ticketBackEnd\bin</Jar>
+    <AuxClasspathEntry>C:\Users\100484424\Google Drive\Quality Assurance\Ticket Project\team-name-working\backend\ticketBackEnd\ticketBackEnd\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\100484424\Documents\eclipse\plugins\org.junit_4.11.0.v201303080030\junit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\100484424\Documents\eclipse\plugins\org.hamcrest.core_1.3.0.v201303031735.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_40\lib\rt.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\100484424\Google Drive\Quality Assurance\Ticket Project\team-name-working\backend\ticketBackEnd\ticketBackEnd\src</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.backEndMain">
+      <SourceLine classname="runtime.backEndMain" start="14" end="223" sourcefile="backEndMain.java" sourcepath="runtime/backEndMain.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.helper">
+      <SourceLine classname="runtime.helper" start="7" end="103" sourcefile="helper.java" sourcepath="runtime/helper.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" first="1">
+    <Class classname="runtime.helper">
+      <SourceLine classname="runtime.helper" sourcefile="helper.java" sourcepath="runtime/helper.java"/>
+    </Class>
+    <Method classname="runtime.helper" name="padDouble" signature="(DI)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="runtime.helper" start="88" end="103" startBytecode="0" endBytecode="371" sourcefile="helper.java" sourcepath="runtime/helper.java"/>
+    </Method>
+    <SourceLine classname="runtime.helper" start="94" end="94" startBytecode="33" endBytecode="33" sourcefile="helper.java" sourcepath="runtime/helper.java"/>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" first="1">
+    <Class classname="runtime.helper">
+      <SourceLine classname="runtime.helper" sourcefile="helper.java" sourcepath="runtime/helper.java"/>
+    </Class>
+    <Method classname="runtime.helper" name="padInt" signature="(II)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="runtime.helper" start="74" end="82" startBytecode="0" endBytecode="203" sourcefile="helper.java" sourcepath="runtime/helper.java"/>
+    </Method>
+    <SourceLine classname="runtime.helper" start="78" end="78" startBytecode="24" endBytecode="24" sourcefile="helper.java" sourcepath="runtime/helper.java"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.helperTest">
+      <SourceLine classname="runtime.helperTest" start="9" end="428" sourcefile="helperTest.java" sourcepath="runtime/helperTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.ticket">
+      <SourceLine classname="runtime.ticket" start="13" end="86" sourcefile="ticket.java" sourcepath="runtime/ticket.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="DE_MIGHT_IGNORE" priority="1" rank="14" abbrev="DE" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.ticketTest">
+      <SourceLine classname="runtime.ticketTest" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Class>
+    <Method classname="runtime.ticketTest" name="testBadName" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.ticketTest" start="46" end="50" startBytecode="0" endBytecode="113" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Method>
+    <Class classname="java.lang.Exception" role="CLASS_EXCEPTION">
+      <SourceLine classname="java.lang.Exception"/>
+    </Class>
+    <SourceLine classname="runtime.ticketTest" start="49" end="49" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="49" end="49" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="49" end="49" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+  </BugInstance>
+  <BugInstance type="DE_MIGHT_IGNORE" priority="1" rank="14" abbrev="DE" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.ticketTest">
+      <SourceLine classname="runtime.ticketTest" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Class>
+    <Method classname="runtime.ticketTest" name="testBadPrice" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.ticketTest" start="28" end="32" startBytecode="0" endBytecode="113" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Method>
+    <Class classname="java.lang.Exception" role="CLASS_EXCEPTION">
+      <SourceLine classname="java.lang.Exception"/>
+    </Class>
+    <SourceLine classname="runtime.ticketTest" start="31" end="31" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="31" end="31" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="31" end="31" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+  </BugInstance>
+  <BugInstance type="DE_MIGHT_IGNORE" priority="1" rank="14" abbrev="DE" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.ticketTest">
+      <SourceLine classname="runtime.ticketTest" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Class>
+    <Method classname="runtime.ticketTest" name="testBadQuantity" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.ticketTest" start="19" end="23" startBytecode="0" endBytecode="113" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Method>
+    <Class classname="java.lang.Exception" role="CLASS_EXCEPTION">
+      <SourceLine classname="java.lang.Exception"/>
+    </Class>
+    <SourceLine classname="runtime.ticketTest" start="22" end="22" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="22" end="22" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="22" end="22" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+  </BugInstance>
+  <BugInstance type="DE_MIGHT_IGNORE" priority="1" rank="14" abbrev="DE" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.ticketTest">
+      <SourceLine classname="runtime.ticketTest" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Class>
+    <Method classname="runtime.ticketTest" name="testBadUser" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.ticketTest" start="37" end="41" startBytecode="0" endBytecode="113" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Method>
+    <Class classname="java.lang.Exception" role="CLASS_EXCEPTION">
+      <SourceLine classname="java.lang.Exception"/>
+    </Class>
+    <SourceLine classname="runtime.ticketTest" start="40" end="40" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="40" end="40" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="40" end="40" startBytecode="23" endBytecode="23" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="runtime.ticketTest">
+      <SourceLine classname="runtime.ticketTest" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Class>
+    <Method classname="runtime.ticketTest" name="testBadName" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.ticketTest" start="46" end="50" startBytecode="0" endBytecode="11" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Method>
+    <LocalVariable name="badName" register="1" pc="17" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="runtime.ticketTest" start="46" end="46" startBytecode="16" endBytecode="16" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="46" end="46" startBytecode="16" endBytecode="16" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.KILLED_BY_SUBSEQUENT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="badName"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="runtime.ticketTest">
+      <SourceLine classname="runtime.ticketTest" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Class>
+    <Method classname="runtime.ticketTest" name="testBadPrice" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.ticketTest" start="28" end="32" startBytecode="0" endBytecode="11" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Method>
+    <LocalVariable name="badPrice" register="1" pc="17" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="runtime.ticketTest" start="28" end="28" startBytecode="16" endBytecode="16" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="28" end="28" startBytecode="16" endBytecode="16" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.KILLED_BY_SUBSEQUENT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="badPrice"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="runtime.ticketTest">
+      <SourceLine classname="runtime.ticketTest" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Class>
+    <Method classname="runtime.ticketTest" name="testBadQuantity" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.ticketTest" start="19" end="23" startBytecode="0" endBytecode="11" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Method>
+    <LocalVariable name="badQuantity" register="1" pc="17" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="runtime.ticketTest" start="19" end="19" startBytecode="16" endBytecode="16" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="19" end="19" startBytecode="16" endBytecode="16" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.KILLED_BY_SUBSEQUENT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="badQuantity"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="runtime.ticketTest">
+      <SourceLine classname="runtime.ticketTest" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Class>
+    <Method classname="runtime.ticketTest" name="testBadUser" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.ticketTest" start="37" end="41" startBytecode="0" endBytecode="11" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Method>
+    <LocalVariable name="badUser" register="1" pc="17" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="runtime.ticketTest" start="37" end="37" startBytecode="16" endBytecode="16" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <SourceLine classname="runtime.ticketTest" start="37" end="37" startBytecode="16" endBytecode="16" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.KILLED_BY_SUBSEQUENT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="badUser"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.ticketTest">
+      <SourceLine classname="runtime.ticketTest" start="7" end="83" sourcefile="ticketTest.java" sourcepath="runtime/ticketTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="runtime.ticketsRW">
+      <SourceLine classname="runtime.ticketsRW" sourcefile="ticketsRW.java" sourcepath="runtime/ticketsRW.java"/>
+    </Class>
+    <Method classname="runtime.ticketsRW" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.ticketsRW" start="25" end="44" startBytecode="0" endBytecode="149" sourcefile="ticketsRW.java" sourcepath="runtime/ticketsRW.java"/>
+    </Method>
+    <Method classname="java.io.FileReader" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileReader"/>
+    </Method>
+    <SourceLine classname="runtime.ticketsRW" start="29" end="29" startBytecode="15" endBytecode="15" sourcefile="ticketsRW.java" sourcepath="runtime/ticketsRW.java"/>
+    <SourceLine classname="runtime.ticketsRW" start="29" end="29" startBytecode="15" endBytecode="15" sourcefile="ticketsRW.java" sourcepath="runtime/ticketsRW.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="runtime.ticketsRW">
+      <SourceLine classname="runtime.ticketsRW" sourcefile="ticketsRW.java" sourcepath="runtime/ticketsRW.java"/>
+    </Class>
+    <Method classname="runtime.ticketsRW" name="writeTickets" signature="([Lruntime/ticket;)I" isStatic="false">
+      <SourceLine classname="runtime.ticketsRW" start="94" end="132" startBytecode="0" endBytecode="405" sourcefile="ticketsRW.java" sourcepath="runtime/ticketsRW.java"/>
+    </Method>
+    <Method classname="java.io.FileWriter" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileWriter"/>
+    </Method>
+    <SourceLine classname="runtime.ticketsRW" start="94" end="94" startBytecode="10" endBytecode="10" sourcefile="ticketsRW.java" sourcepath="runtime/ticketsRW.java"/>
+    <SourceLine classname="runtime.ticketsRW" start="94" end="94" startBytecode="10" endBytecode="10" sourcefile="ticketsRW.java" sourcepath="runtime/ticketsRW.java"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.ticketsRW">
+      <SourceLine classname="runtime.ticketsRW" start="25" end="132" sourcefile="ticketsRW.java" sourcepath="runtime/ticketsRW.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.ticketsRWTest">
+      <SourceLine classname="runtime.ticketsRWTest" start="9" end="58" sourcefile="ticketsRWTest.java" sourcepath="runtime/ticketsRWTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="runtime.transactionR">
+      <SourceLine classname="runtime.transactionR" sourcefile="transactionR.java" sourcepath="runtime/transactionR.java"/>
+    </Class>
+    <Method classname="runtime.transactionR" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.transactionR" start="23" end="38" startBytecode="0" endBytecode="149" sourcefile="transactionR.java" sourcepath="runtime/transactionR.java"/>
+    </Method>
+    <Method classname="java.io.FileReader" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileReader"/>
+    </Method>
+    <SourceLine classname="runtime.transactionR" start="27" end="27" startBytecode="15" endBytecode="15" sourcefile="transactionR.java" sourcepath="runtime/transactionR.java"/>
+    <SourceLine classname="runtime.transactionR" start="27" end="27" startBytecode="15" endBytecode="15" sourcefile="transactionR.java" sourcepath="runtime/transactionR.java"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.transactionR">
+      <SourceLine classname="runtime.transactionR" start="23" end="64" sourcefile="transactionR.java" sourcepath="runtime/transactionR.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="runtime.transactionR">
+      <SourceLine classname="runtime.transactionR" sourcefile="transactionR.java" sourcepath="runtime/transactionR.java"/>
+    </Class>
+    <Field classname="runtime.transactionR" name="fileFound" signature="Z" isStatic="false">
+      <SourceLine classname="runtime.transactionR" sourcefile="transactionR.java" sourcepath="runtime/transactionR.java"/>
+    </Field>
+    <SourceLine classname="runtime.transactionR" start="30" end="30" startBytecode="31" endBytecode="31" sourcefile="transactionR.java" sourcepath="runtime/transactionR.java"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.transactionRTest">
+      <SourceLine classname="runtime.transactionRTest" start="7" end="50" sourcefile="transactionRTest.java" sourcepath="runtime/transactionRTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.user">
+      <SourceLine classname="runtime.user" start="11" end="68" sourcefile="user.java" sourcepath="runtime/user.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="runtime.userAccountsRW">
+      <SourceLine classname="runtime.userAccountsRW" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+    </Class>
+    <Method classname="runtime.userAccountsRW" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.userAccountsRW" start="25" end="40" startBytecode="0" endBytecode="149" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+    </Method>
+    <Method classname="java.io.FileReader" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileReader"/>
+    </Method>
+    <SourceLine classname="runtime.userAccountsRW" start="29" end="29" startBytecode="15" endBytecode="15" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+    <SourceLine classname="runtime.userAccountsRW" start="29" end="29" startBytecode="15" endBytecode="15" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="runtime.userAccountsRW">
+      <SourceLine classname="runtime.userAccountsRW" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+    </Class>
+    <Method classname="runtime.userAccountsRW" name="writeUsers" signature="([Lruntime/user;)I" isStatic="false">
+      <SourceLine classname="runtime.userAccountsRW" start="90" end="126" startBytecode="0" endBytecode="383" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+    </Method>
+    <Method classname="java.io.FileWriter" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileWriter"/>
+    </Method>
+    <SourceLine classname="runtime.userAccountsRW" start="90" end="90" startBytecode="10" endBytecode="10" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+    <SourceLine classname="runtime.userAccountsRW" start="90" end="90" startBytecode="10" endBytecode="10" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.userAccountsRW">
+      <SourceLine classname="runtime.userAccountsRW" start="25" end="131" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NP_DEREFERENCE_OF_READLINE_VALUE" priority="2" rank="15" abbrev="NP" category="STYLE" first="1">
+    <Class classname="runtime.userAccountsRW">
+      <SourceLine classname="runtime.userAccountsRW" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+    </Class>
+    <Method classname="runtime.userAccountsRW" name="getUsers" signature="()[Lruntime/user;" isStatic="false">
+      <SourceLine classname="runtime.userAccountsRW" start="44" end="84" startBytecode="0" endBytecode="331" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+    </Method>
+    <LocalVariable name="raw" register="3" pc="33" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="runtime.userAccountsRW" start="54" end="54" startBytecode="35" endBytecode="35" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+    <SourceLine classname="runtime.userAccountsRW" start="54" end="54" startBytecode="35" endBytecode="35" sourcefile="userAccountsRW.java" sourcepath="runtime/userAccountsRW.java"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.userAccountsRWTest">
+      <SourceLine classname="runtime.userAccountsRWTest" start="13" end="38" sourcefile="userAccountsRWTest.java" sourcepath="runtime/userAccountsRWTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="DE_MIGHT_IGNORE" priority="1" rank="14" abbrev="DE" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.userTest">
+      <SourceLine classname="runtime.userTest" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Class>
+    <Method classname="runtime.userTest" name="testBadCredit" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.userTest" start="39" end="42" startBytecode="0" endBytecode="107" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Method>
+    <Class classname="java.lang.Exception" role="CLASS_EXCEPTION">
+      <SourceLine classname="java.lang.Exception"/>
+    </Class>
+    <SourceLine classname="runtime.userTest" start="41" end="41" startBytecode="21" endBytecode="21" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <SourceLine classname="runtime.userTest" start="41" end="41" startBytecode="21" endBytecode="21" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <SourceLine classname="runtime.userTest" start="41" end="41" startBytecode="21" endBytecode="21" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+  </BugInstance>
+  <BugInstance type="DE_MIGHT_IGNORE" priority="1" rank="14" abbrev="DE" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.userTest">
+      <SourceLine classname="runtime.userTest" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Class>
+    <Method classname="runtime.userTest" name="testBadUserType" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.userTest" start="31" end="34" startBytecode="0" endBytecode="107" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Method>
+    <Class classname="java.lang.Exception" role="CLASS_EXCEPTION">
+      <SourceLine classname="java.lang.Exception"/>
+    </Class>
+    <SourceLine classname="runtime.userTest" start="33" end="33" startBytecode="21" endBytecode="21" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <SourceLine classname="runtime.userTest" start="33" end="33" startBytecode="21" endBytecode="21" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <SourceLine classname="runtime.userTest" start="33" end="33" startBytecode="21" endBytecode="21" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+  </BugInstance>
+  <BugInstance type="DE_MIGHT_IGNORE" priority="1" rank="14" abbrev="DE" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.userTest">
+      <SourceLine classname="runtime.userTest" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Class>
+    <Method classname="runtime.userTest" name="testBadUsername" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.userTest" start="22" end="26" startBytecode="0" endBytecode="111" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Method>
+    <Class classname="java.lang.Exception" role="CLASS_EXCEPTION">
+      <SourceLine classname="java.lang.Exception"/>
+    </Class>
+    <SourceLine classname="runtime.userTest" start="25" end="25" startBytecode="21" endBytecode="21" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <SourceLine classname="runtime.userTest" start="25" end="25" startBytecode="21" endBytecode="21" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <SourceLine classname="runtime.userTest" start="25" end="25" startBytecode="21" endBytecode="21" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="runtime.userTest">
+      <SourceLine classname="runtime.userTest" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Class>
+    <Method classname="runtime.userTest" name="testBadCredit" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.userTest" start="39" end="42" startBytecode="0" endBytecode="10" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Method>
+    <LocalVariable name="testBadCredit" register="1" pc="15" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="runtime.userTest" start="39" end="39" startBytecode="14" endBytecode="14" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <SourceLine classname="runtime.userTest" start="39" end="39" startBytecode="14" endBytecode="14" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.KILLED_BY_SUBSEQUENT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="testBadCredit"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="runtime.userTest">
+      <SourceLine classname="runtime.userTest" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Class>
+    <Method classname="runtime.userTest" name="testBadUserType" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.userTest" start="31" end="34" startBytecode="0" endBytecode="10" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Method>
+    <LocalVariable name="testBadUserType" register="1" pc="15" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="runtime.userTest" start="31" end="31" startBytecode="14" endBytecode="14" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <SourceLine classname="runtime.userTest" start="31" end="31" startBytecode="14" endBytecode="14" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.KILLED_BY_SUBSEQUENT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="testBadUserType"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="runtime.userTest">
+      <SourceLine classname="runtime.userTest" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Class>
+    <Method classname="runtime.userTest" name="testBadUsername" signature="()V" isStatic="false">
+      <SourceLine classname="runtime.userTest" start="22" end="26" startBytecode="0" endBytecode="10" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Method>
+    <LocalVariable name="testBadUsername" register="1" pc="15" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="runtime.userTest" start="22" end="22" startBytecode="14" endBytecode="14" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <SourceLine classname="runtime.userTest" start="22" end="22" startBytecode="14" endBytecode="14" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.KILLED_BY_SUBSEQUENT_STORE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="testBadUsername"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="runtime.userTest">
+      <SourceLine classname="runtime.userTest" start="11" end="74" sourcefile="userTest.java" sourcepath="runtime/userTest.java"/>
+    </Class>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Sun, 5 Apr 2015 21:47:07 -0400" total_classes="13" referenced_classes="37" total_bugs="36" total_size="741" num_packages="1" java_version="1.8.0_40" vm_version="25.40-b25" cpu_seconds="2.06" clock_seconds="0.81" peak_mbytes="550.59" alloc_mbytes="455.50" gc_seconds="0.03" priority_2="24" priority_1="12">
+    <PackageStats package="runtime" total_bugs="36" total_types="13" total_size="741" priority_2="24" priority_1="12">
+      <ClassStats class="runtime.backEndMain" sourceFile="backEndMain.java" interface="false" size="104" bugs="1" priority_2="1"/>
+      <ClassStats class="runtime.helper" sourceFile="helper.java" interface="false" size="56" bugs="3" priority_2="3"/>
+      <ClassStats class="runtime.helperTest" sourceFile="helperTest.java" interface="false" size="238" bugs="1" priority_2="1"/>
+      <ClassStats class="runtime.ticket" sourceFile="ticket.java" interface="false" size="37" bugs="1" priority_2="1"/>
+      <ClassStats class="runtime.ticketTest" sourceFile="ticketTest.java" interface="false" size="55" bugs="9" priority_2="5" priority_1="4"/>
+      <ClassStats class="runtime.ticketsRW" sourceFile="ticketsRW.java" interface="false" size="50" bugs="3" priority_2="1" priority_1="2"/>
+      <ClassStats class="runtime.ticketsRWTest" sourceFile="ticketsRWTest.java" interface="false" size="18" bugs="1" priority_2="1"/>
+      <ClassStats class="runtime.transactionR" sourceFile="transactionR.java" interface="false" size="23" bugs="3" priority_2="2" priority_1="1"/>
+      <ClassStats class="runtime.transactionRTest" sourceFile="transactionRTest.java" interface="false" size="18" bugs="1" priority_2="1"/>
+      <ClassStats class="runtime.user" sourceFile="user.java" interface="false" size="30" bugs="1" priority_2="1"/>
+      <ClassStats class="runtime.userAccountsRW" sourceFile="userAccountsRW.java" interface="false" size="49" bugs="4" priority_2="2" priority_1="2"/>
+      <ClassStats class="runtime.userAccountsRWTest" sourceFile="userAccountsRWTest.java" interface="false" size="18" bugs="1" priority_2="1"/>
+      <ClassStats class="runtime.userTest" sourceFile="userTest.java" interface="false" size="45" bugs="7" priority_2="4" priority_1="3"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="114" invocations="372" avgMicrosecondsPerInvocation="307" maxMicrosecondsPerInvocation="17845" standardDeviationMircosecondsPerInvocation="1024"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="78" invocations="2" avgMicrosecondsPerInvocation="39092" maxMicrosecondsPerInvocation="65340" standardDeviationMircosecondsPerInvocation="26248"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="44" invocations="41" avgMicrosecondsPerInvocation="1090" maxMicrosecondsPerInvocation="6908" standardDeviationMircosecondsPerInvocation="1428"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="37" invocations="372" avgMicrosecondsPerInvocation="101" maxMicrosecondsPerInvocation="1834" standardDeviationMircosecondsPerInvocation="120"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="32" invocations="86" avgMicrosecondsPerInvocation="383" maxMicrosecondsPerInvocation="10549" standardDeviationMircosecondsPerInvocation="1150"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="31" invocations="86" avgMicrosecondsPerInvocation="366" maxMicrosecondsPerInvocation="10166" standardDeviationMircosecondsPerInvocation="1108"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="28" invocations="89" avgMicrosecondsPerInvocation="317" maxMicrosecondsPerInvocation="9162" standardDeviationMircosecondsPerInvocation="1027"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="27" invocations="170" avgMicrosecondsPerInvocation="163" maxMicrosecondsPerInvocation="6440" standardDeviationMircosecondsPerInvocation="532"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="25" invocations="86" avgMicrosecondsPerInvocation="301" maxMicrosecondsPerInvocation="7622" standardDeviationMircosecondsPerInvocation="849"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="23" invocations="13" avgMicrosecondsPerInvocation="1775" maxMicrosecondsPerInvocation="21466" standardDeviationMircosecondsPerInvocation="5685"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="20" invocations="37" avgMicrosecondsPerInvocation="554" maxMicrosecondsPerInvocation="4121" standardDeviationMircosecondsPerInvocation="931"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="19" invocations="37" avgMicrosecondsPerInvocation="518" maxMicrosecondsPerInvocation="3586" standardDeviationMircosecondsPerInvocation="805"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="17" invocations="89" avgMicrosecondsPerInvocation="193" maxMicrosecondsPerInvocation="3619" standardDeviationMircosecondsPerInvocation="413"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="15" invocations="86" avgMicrosecondsPerInvocation="178" maxMicrosecondsPerInvocation="1926" standardDeviationMircosecondsPerInvocation="246"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueRangeAnalysisFactory" totalMilliseconds="13" invocations="86" avgMicrosecondsPerInvocation="159" maxMicrosecondsPerInvocation="12310" standardDeviationMircosecondsPerInvocation="1318"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="12" invocations="73" avgMicrosecondsPerInvocation="173" maxMicrosecondsPerInvocation="2972" standardDeviationMircosecondsPerInvocation="372"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="11" invocations="336" avgMicrosecondsPerInvocation="33" maxMicrosecondsPerInvocation="1030" standardDeviationMircosecondsPerInvocation="84"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="11" invocations="37" avgMicrosecondsPerInvocation="298" maxMicrosecondsPerInvocation="6305" standardDeviationMircosecondsPerInvocation="1043"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1428284834447" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>

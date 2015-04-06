@@ -1,0 +1,69 @@
+
+package runtime;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+
+public class ticketTest {
+	private static final double EPSILON = 1e-10;
+	
+	
+	@Test
+	public void testTicket() {
+		ticket test = new ticket("test ticket","tdfrantz",100,100);
+		
+		ticket badUser = new ticket("test ticket", "username is more than fifteen characters", 100, 100);
+		ticket badPrice = new ticket("test ticket", "tdfrantz", 100, 1000);
+		ticket badQuantity = new ticket("test ticket", "tdfrantz", 101, 100);
+		
+		assertNotNull(test);
+		assertNull(badUser);
+		assertNull(badPrice);
+		assertNull(badQuantity);			
+	}
+	
+	@Test
+	public void testBadName() throws Exception{
+		try{
+			ticket badName = new ticket("this name length is way more than twenty five character so it should fail", "tdfrantz", 100, 100);
+			fail();
+		}
+		catch(Exception e){
+			
+		}	
+	}
+	
+	@Test
+	public void testGetName() throws Exception {
+		ticket test = new ticket("test ticket", "tdfrantz", 100, 100);
+		assertEquals("test ticket",test.getName());
+	}
+
+	@Test
+	public void testGetSeller() throws Exception {
+		ticket test = new ticket("test ticket", "tdfrantz", 100, 100);
+		assertEquals("tdfrantz",test.getSeller());
+	}
+
+	@Test
+	public void testGetQuantity() throws Exception {
+		ticket test = new ticket("test ticket", "tdfrantz", 100, 10);
+		assertEquals(100,test.getQuantity());
+	}
+
+	@Test
+	public void testGetPrice() throws Exception {
+		ticket test = new ticket("test ticket", "tdfrantz", 10, 100);
+		assertEquals(100.00,test.getPrice(), EPSILON);
+	}
+
+	@Test
+	public void testUpdateQuantity() throws Exception {
+		ticket test = new ticket("test ticket", "tdfrantz", 50, 50);
+		test.updateQuantity(90);
+		assertEquals(90, test.getQuantity());		
+	}
+
+}
