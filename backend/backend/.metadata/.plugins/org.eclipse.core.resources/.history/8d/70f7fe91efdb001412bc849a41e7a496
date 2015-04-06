@@ -1,0 +1,81 @@
+package end;
+
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class userAccountsRWTest {
+
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testUserAccountsRW() {
+		assertTrue(userAccountsRW.isFileFound());
+	}
+
+	@Test
+	public void testGetUsers() {
+		userAccountsRW testRW = new userAccountsRW();
+		user userList[]=null;
+		try {
+			 
+			  userList=testRW.getUsers();
+			   
+			  } catch (IOException e) {
+			   
+			  }
+		assertEquals("gamma20142",userList[0].getName());
+	}
+
+	@Test
+	public void testWriteUsers() throws IOException {
+		userAccountsRW testRW = new userAccountsRW(); 
+		user userList[]=null;
+		try {
+			 
+			  userList=testRW.getUsers();
+			   
+			  } catch (IOException e) {
+			   
+			  }
+		int result= testRW.writeUsers(userList);
+		assertEquals(0, result);
+	}
+	
+	public void testWriteUsers1() throws IOException {
+		userAccountsRW testRW = new userAccountsRW(); 
+		user userList[]=null;
+		try {
+			 
+			  userList=testRW.getUsers();
+			   
+			  } catch (IOException e) {
+			   
+			  }
+		int result= testRW.writeUsers(userList);
+		assertEquals(-1, result);
+	}
+}
+
+
+

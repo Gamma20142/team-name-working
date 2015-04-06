@@ -10,13 +10,33 @@ public class ticket {
 	private double price;
 	
 	
-	public ticket(String n, String s, int q, double p){
+	public ticket(String n, String s, int q, double p) throws Exception{
+	
+		//test for invalid inputs, throw an exception if one is found
+		if (n.length()>25 || n.length() < 0){
+			System.out.println("ERROR: Name \'" + n +"\' is an invalid name.");
+			throw new Exception();
+		}	
+		
+		if (s.length()>15 || s.length() < 0){
+			System.out.println("ERROR: Username \'" + s + "\' is an invalid username.");
+			throw new Exception();
+		}
+		
+		if (q > 100 || q < 0){
+			System.out.println("ERORR:" + q + " is an invalid quantity.");
+			throw new Exception();
+		}
+	
+		if (p>=1000 ||  p < 0){
+			System.out.println("ERROR: " + p + " is an invalid price.");
+			throw new Exception();			
+		}
+	
 		
 		name = n;
-		seller = s;
-		
+		seller = s;	
 		quantity = q;
-		
 		price = p;
 		
 	}
@@ -68,9 +88,5 @@ public class ticket {
 		}
 		
 	}
-	
-	
-	
-	
-	
+
 }

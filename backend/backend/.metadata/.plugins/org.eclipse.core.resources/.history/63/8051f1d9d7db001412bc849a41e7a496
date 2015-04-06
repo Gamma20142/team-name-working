@@ -1,0 +1,81 @@
+package runtime;
+
+public class ticket {
+	
+	private String name;
+	private String seller;
+	
+	private int quantity;
+	
+	private double price;
+	
+	
+	public ticket(String n, String s, int q, double p){
+		
+		if (n.length()>25 || n.length() < 0){
+			System.out.println("ERROR: Name \'" + n +"\' is an invalid name.");
+			System.exit(1);
+		}
+		
+		name = n;
+		seller = s;
+		
+		quantity = q;
+		
+		price = p;
+		
+	}
+	
+	
+	//return the event's name
+	public String getName(){
+		
+		return name;
+		
+	}
+	
+	
+	//return the event's seller
+	public String getSeller(){
+		
+		return seller;
+		
+	}
+	
+	
+	//return the number of tickets left
+	public int getQuantity(){
+		
+		return quantity;
+		
+	}
+	
+	
+	//return the event's name
+	public double getPrice(){
+		
+		return price;
+		
+	}
+	
+	
+	
+	// only allows there to be between 0 and 999 tickets
+	public int updateQuantity(int newQ){
+		
+		if(newQ < 0 || newQ > 999)
+			return -1;
+		else{
+			
+			quantity = newQ;
+			return 0;
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+}

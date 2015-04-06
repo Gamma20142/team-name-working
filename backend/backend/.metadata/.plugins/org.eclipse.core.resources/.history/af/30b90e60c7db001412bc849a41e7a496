@@ -1,0 +1,39 @@
+package runtime;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class ticketTest {
+
+	@Test
+	public void testTicket() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetName() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetSeller() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetQuantity() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetPrice() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testUpdateQuantity() {
+		fail("Not yet implemented");
+	}
+
+}
